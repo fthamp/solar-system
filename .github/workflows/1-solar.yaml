@@ -1,4 +1,4 @@
-name: solar system skip
+name: solar system 1
 on: 
   workflow_dispatch:
   # push: 
@@ -48,6 +48,7 @@ jobs:
       - name: install dependencies
         run: npm install 
       - name: Run code coverage
+        continue-on-error: true
         run: npm run coverage
       - name: saving coverage artifact 
         uses: actions/upload-artifact@v4

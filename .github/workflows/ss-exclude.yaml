@@ -1,4 +1,4 @@
-name: solar system skip
+name: solar system 3
 on: 
   workflow_dispatch:
   # push: 
@@ -34,24 +34,5 @@ jobs:
       - name: Saving the test results
         uses: actions/upload-artifact@v4
         with: 
-          name: numberwise-${{ matrix.nodejsversion }}-on-${{ matrix.os }}
+          name: testresult
           path: test-results.xml
-
-  code-coverage: 
-    runs-on: ubuntu-latest
-    steps: 
-      - name: checkout repo 
-        uses: actions/checkout@v4
-      - uses: actions/setup-node@v4 
-        with:
-          node-version: 18
-      - name: install dependencies
-        run: npm install 
-      - name: Run code coverage
-        run: npm run coverage
-      - name: saving coverage artifact 
-        uses: actions/upload-artifact@v4
-        with: 
-          name: Coverage results
-          path: coverage
-          retention-days: 2

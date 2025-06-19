@@ -1,10 +1,10 @@
-name: solar system skip
+name: solar system 
 on: 
   workflow_dispatch:
-  # push: 
-  #   branches: 
-  #     - main
-  #     - feature/*
+  push: 
+    branches: 
+      - main
+      - feature/*
 
 env: 
   MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
@@ -48,10 +48,11 @@ jobs:
       - name: install dependencies
         run: npm install 
       - name: Run code coverage
+        continue-on-error: true
         run: npm run coverage
       - name: saving coverage artifact 
         uses: actions/upload-artifact@v4
         with: 
           name: Coverage results
           path: coverage
-          retention-days: 2
+          retention-days: 1

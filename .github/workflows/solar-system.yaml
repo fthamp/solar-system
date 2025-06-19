@@ -1,4 +1,4 @@
-name: solar system 
+name: solar system skip
 on: 
   workflow_dispatch:
   # push: 

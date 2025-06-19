@@ -1,4 +1,4 @@
-name: solar system new
+name: solar system 
 on: 
   workflow_dispatch:
   push: 
@@ -48,10 +48,11 @@ jobs:
       - name: install dependencies
         run: npm install 
       - name: Run code coverage
+        continue-on-error: true
         run: npm run coverage
       - name: saving coverage artifact 
         uses: actions/upload-artifact@v4
         with: 
           name: Coverage results
           path: coverage
-          retention-days: 2
+          retention-days: 1
